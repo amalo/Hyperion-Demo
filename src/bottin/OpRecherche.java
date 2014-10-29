@@ -14,12 +14,12 @@ import java.util.ArrayList;
  */
 public class OpRecherche implements IOperation{
     private Enregistrement m_Registre;
-    private ArrayList<String> options = new ArrayList<>();
+    private ArrayList<String> m_Options = new ArrayList<>();
 
     public OpRecherche(Enregistrement registre) {
         m_Registre = registre;
         
-        options.add("nom");
+        m_Options.add("nom");
     }
     
     public String GetName()
@@ -33,13 +33,13 @@ public class OpRecherche implements IOperation{
     }
     
     public ArrayList<String> GetOption() {
-        return options;
+        return m_Options;
     }    
     
     private int RechercheParNom(ArrayList<String> args)
     {
         int result = -1;
-        System.out.println("Not implemented yet.");
+        System.out.println("N'est pas implémenté.");
         return result;
     }
 }

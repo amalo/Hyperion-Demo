@@ -22,7 +22,7 @@ public class Enregistrement {
         if (!m_Records.contains(newName))
         {
             m_Records.add(newName);
-            System.out.println("New record: " + newName);
+            System.out.println("Nouvel enregistrement: " + newName);
             result = 1;
         }
         
