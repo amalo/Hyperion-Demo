@@ -26,7 +26,7 @@ public class Bottin
         Enregistrement registreBottin = new Enregistrement();
         Menu menuBottin = new Menu();
         menuBottin.AjouterOperation(new OpEnregistrement(registreBottin));
-        menuBottin.AjouterOperation(new OpRecherche(registreBottin));
+        
         menuBottin.AjouterOperation(new OpListe(registreBottin));
 
         boolean bSortir = false;
@@ -51,5 +51,5 @@ public class Bottin
             Thread.sleep(1);
         }
     }
-
+    // Testing 12 12 12
 }
