@@ -38,6 +38,8 @@ public class Bottin
 
             try 
             {
+            // Commentaire inutile de daren:
+            // Bonjour!
                 InputStreamReader converter = new InputStreamReader(System.in);
                 BufferedReader in = new BufferedReader(converter);
                 commande = in.readLine();
