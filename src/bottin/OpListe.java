@@ -30,10 +30,10 @@ public class OpListe implements IOperation{
     {
         int result = -1;
         
-        String command = args.get(0);
+        String commande = args.get(0);
         args.remove(0);
         
-        if (command.matches(options.get(0)))
+        if (commande.matches(options.get(0)))
         {
             result = ListeTous();
         }

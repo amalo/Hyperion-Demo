@@ -29,6 +29,14 @@ public class OpRecherche implements IOperation{
     public int Execute(ArrayList<String> args)
     {
         int result = -1;
+        
+        String commande = args.get(0);
+        args.remove(0);
+        
+        if (commande.matches(options.get(0)))
+        {
+            result = RechercheParNom(args);
+        }
         return result;
     }
     
@@ -38,8 +46,16 @@ public class OpRecherche implements IOperation{
     
     private int RechercheParNom(ArrayList<String> args)
     {
-        int result = -1;
-        System.out.println("Not implemented yet.");
-        return result;
+        if (m_Registre.GetRecords().contains(args.get(0)))
+        {
+            System.out.println("Le bottin contient l'élément " + args.get(0));
+            
+        }
+        else
+        {
+            System.out.println("Le bottin ne contient pas l'élément " + args.get(0));
+        }
+        
+        return 1;
     }
 }

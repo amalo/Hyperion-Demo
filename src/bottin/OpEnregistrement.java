@@ -33,18 +33,18 @@ public class OpEnregistrement implements IOperation{
     {
         int result = -1;
         
-        String command = args.get(0);
+        String commande = args.get(0);
         args.remove(0);
         
-        if (command.matches(options.get(0)))
+        if (commande.matches(options.get(0)))
         {
             result = AjouterEnregistrement(args);
         }
-        else if (command.matches(options.get(1)))
+        else if (commande.matches(options.get(1)))
         {
             result = RetirerEnregistrement(args);
         }
-        else if (command.matches(options.get(3)))
+        else if (commande.matches(options.get(3)))
         {
             result = ModifierEnregistrement(args);
         }
