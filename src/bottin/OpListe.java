@@ -12,14 +12,16 @@ import java.util.ArrayList;
  *
  * @author Julie
  */
-public class OpListe implements IOperation{
+public class OpListe implements IOperation
+{
     private Enregistrement m_Registre;
-    private ArrayList<String> options = new ArrayList<>();
+    private ArrayList<String> m_Options = new ArrayList<>();
 
-    public OpListe(Enregistrement registre) {
+    public OpListe(Enregistrement registre) 
+    {
         m_Registre = registre;
         
-        options.add("tous");
+        m_Options.add("tous");
     }
     
     public String GetName()
@@ -33,15 +35,16 @@ public class OpListe implements IOperation{
         String commande = args.get(0);
         args.remove(0);
         
-        if (commande.matches(options.get(0)))
+        if (commande.matches(m_Options.get(0)))
         {
             result = ListeTous();
         }
         return result;
     }
     
-    public ArrayList<String> GetOption() {
-        return options;
+    public ArrayList<String> GetOption()
+    {
+        return m_Options;
     }    
     
     private int ListeTous()
@@ -51,10 +54,10 @@ public class OpListe implements IOperation{
         {
             for (String records : m_Registre.GetRecords())
             {
-                System.out.println("Record found: " + records);
+                System.out.println("Enregistrement trouvé: " + records);
             }
 
-            System.out.println("Done printing record.");
+            System.out.println("Il n'y a plus riens dans les enregistrements.");
             result = 1;
         }
         

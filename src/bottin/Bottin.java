@@ -15,12 +15,14 @@ import java.util.logging.Logger;
  *
  * @author Julie
  */
-public class Bottin {
+public class Bottin 
+{
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException
+    {
         Enregistrement registreBottin = new Enregistrement();
         Menu menuBottin = new Menu();
         menuBottin.AjouterOperation(new OpEnregistrement(registreBottin));
@@ -28,16 +30,20 @@ public class Bottin {
         menuBottin.AjouterOperation(new OpListe(registreBottin));
 
         boolean bSortir = false;
-        while (!bSortir) {
+        while (!bSortir) 
+        {
             menuBottin.PresenterMenu();
 
             String commande = "";
 
-            try {
+            try 
+            {
                 InputStreamReader converter = new InputStreamReader(System.in);
                 BufferedReader in = new BufferedReader(converter);
                 commande = in.readLine();
-            } catch (IOException ex) {
+            } 
+            catch (IOException ex) 
+            {
                 Logger.getLogger(Bottin.class.getName()).log(Level.SEVERE, null, ex);
             }
 

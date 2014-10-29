@@ -12,14 +12,16 @@ import java.util.ArrayList;
  *
  * @author Julie
  */
-public class OpRecherche implements IOperation{
+public class OpRecherche implements IOperation
+{
     private Enregistrement m_Registre;
-    private ArrayList<String> options = new ArrayList<>();
+    private ArrayList<String> m_Options = new ArrayList<>();
 
-    public OpRecherche(Enregistrement registre) {
+    public OpRecherche(Enregistrement registre) 
+    {
         m_Registre = registre;
         
-        options.add("nom");
+        m_Options.add("nom");
     }
     
     public String GetName()
@@ -33,15 +35,16 @@ public class OpRecherche implements IOperation{
         String commande = args.get(0);
         args.remove(0);
         
-        if (commande.matches(options.get(0)))
+        if (commande.matches(m_Options.get(0)))
         {
             result = RechercheParNom(args);
         }
         return result;
     }
     
-    public ArrayList<String> GetOption() {
-        return options;
+    public ArrayList<String> GetOption() 
+    {
+        return m_Options;
     }    
     
     private int RechercheParNom(ArrayList<String> args)
@@ -56,6 +59,6 @@ public class OpRecherche implements IOperation{
             System.out.println("Le bottin ne contient pas l'élément " + args.get(0));
         }
         
-        return 1;
+        return 1;    
     }
 }

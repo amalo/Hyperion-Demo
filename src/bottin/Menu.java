@@ -13,7 +13,8 @@ import java.util.Arrays;
  *
  * @author Julie
  */
-public class Menu {
+public class Menu 
+{
     private ArrayList<IOperation> vecOps = new ArrayList<>();
     
     public void AjouterOperation(IOperation nouvelleOperation)
@@ -68,7 +69,7 @@ public class Menu {
                     {
                         if (operation.Execute(aArguments) <0 )
                         {
-                            System.out.println("Could not execute command");
+                            System.out.println("La commande n'a pu être exécuté");
                         }
                         break;
                     }

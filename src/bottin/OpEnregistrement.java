@@ -12,16 +12,18 @@ import java.util.ArrayList;
  *
  * @author Julie
  */
-public class OpEnregistrement implements IOperation{
+public class OpEnregistrement implements IOperation
+{
     private Enregistrement m_Registre;
-    private ArrayList<String> options = new ArrayList<>();
+    private ArrayList<String> m_Options = new ArrayList<>();
 
-    public OpEnregistrement(Enregistrement registre) {
+    public OpEnregistrement(Enregistrement registre)
+    {
         m_Registre = registre;
         
-        options.add("ajouter");
-        options.add("retirer");
-        options.add("modifier");
+        m_Options.add("ajouter");
+        m_Options.add("retirer");
+        m_Options.add("modifier");
     }
     
     public String GetName()
@@ -36,15 +38,15 @@ public class OpEnregistrement implements IOperation{
         String commande = args.get(0);
         args.remove(0);
         
-        if (commande.matches(options.get(0)))
+        if (commande.matches(m_Options.get(0)))
         {
             result = AjouterEnregistrement(args);
         }
-        else if (commande.matches(options.get(1)))
+        else if (commande.matches(m_Options.get(1)))
         {
             result = RetirerEnregistrement(args);
         }
-        else if (commande.matches(options.get(3)))
+        else if (commande.matches(m_Options.get(2)))
         {
             result = ModifierEnregistrement(args);
         }
@@ -52,8 +54,9 @@ public class OpEnregistrement implements IOperation{
         return result;
     }
     
-    public ArrayList<String> GetOption() {
-        return options;
+    public ArrayList<String> GetOption()
+    {
+        return m_Options;
     }    
         
     private int AjouterEnregistrement(ArrayList<String> args)
@@ -71,14 +74,14 @@ public class OpEnregistrement implements IOperation{
     private int RetirerEnregistrement(ArrayList<String> args)
     {
         int result = -1;
-        System.out.println("Not implemented yet.");
+        System.out.println("N'est pas implémenté.");
         return result;
     }
     
     private int ModifierEnregistrement(ArrayList<String> args)
     {
         int result = -1;
-        System.out.println("Not implemented yet.");
+        System.out.println("N'est pas implémenté.");
         return result;
     }
 }

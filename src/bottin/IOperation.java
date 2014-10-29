@@ -12,7 +12,8 @@ import java.util.ArrayList;
  *
  * @author Julie
  */
-public interface IOperation {
+public interface IOperation
+{
     String GetName();
     int Execute(ArrayList<String> args);
     ArrayList<String> GetOption();
