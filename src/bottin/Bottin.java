@@ -33,6 +33,9 @@ public class Bottin {
 
             String commande = "";
 
+            
+            // Commentaire inutile de daren:
+            // Bonjour!
             try {
                 InputStreamReader converter = new InputStreamReader(System.in);
                 BufferedReader in = new BufferedReader(converter);
