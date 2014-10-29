@@ -25,6 +25,7 @@ public class Bottin {
         Menu menuBottin = new Menu();
         menuBottin.AjouterOperation(new OpEnregistrement(registreBottin));
         menuBottin.AjouterOperation(new OpRecherche(registreBottin));
+        menuBottin.AjouterOperation(new OpListe(registreBottin));
 
         boolean bSortir = false;
         while (!bSortir) {

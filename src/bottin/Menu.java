@@ -6,27 +6,22 @@
 
 package bottin;
 
-import java.util.Arrays;
-import java.util.Vector;
-
 import java.util.ArrayList;
-
+import java.util.Arrays;
 
 /**
  *
  * @author Julie
  */
 public class Menu {
-    Vector<IOperation> vecOps = new Vector<IOperation>();
+    private ArrayList<IOperation> vecOps = new ArrayList<>();
     
     public void AjouterOperation(IOperation nouvelleOperation)
     {
         boolean bOperationExistante = false;
-        int nOpsIndex = 0;
-        for (; nOpsIndex < vecOps.size(); nOpsIndex++)
+        for (IOperation operation : vecOps)
         {
-            IOperation operationCourrante = vecOps.get(nOpsIndex);
-            if (operationCourrante.GetName() == nouvelleOperation.GetName())
+            if (operation.GetName().matches(nouvelleOperation.GetName()))
             {
                 bOperationExistante = true;
                 break;
@@ -44,11 +39,9 @@ public class Menu {
         for (IOperation operation : vecOps)
         {
             System.out.print(operation.GetName());
-            int nbOption = operation.GetNbOptions();
-            int indexOption = 0;
-            for (; indexOption < nbOption; indexOption++)
+            for (String option : operation.GetOption())
             {
-                System.out.print(" : " + operation.GetOption(indexOption));
+                System.out.print(" : " + option);
             }
             System.out.println("");
         }
@@ -58,7 +51,7 @@ public class Menu {
     public boolean ExecuterCommande(String commande)
     {
         boolean terminerMenu = false;
-        ArrayList<String> aArguments = new ArrayList<String>(Arrays.asList(commande.split("\\s+")));
+        ArrayList<String> aArguments = new ArrayList<>(Arrays.asList(commande.split("\\s+")));
         if (aArguments.size() > 0)
         {
             String operationDemande = aArguments.get(0);
@@ -71,9 +64,12 @@ public class Menu {
             {
                 for (IOperation operation : vecOps)
                 {
-                    if(operation.GetName() == operationDemande)
+                    if(operation.GetName().matches(operationDemande))
                     {
-                        operation.Execute(aArguments);
+                        if (operation.Execute(aArguments) <0 )
+                        {
+                            System.out.println("Could not execute command");
+                        }
                         break;
                     }
                 }

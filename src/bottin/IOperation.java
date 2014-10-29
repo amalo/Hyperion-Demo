@@ -15,6 +15,5 @@ import java.util.ArrayList;
 public interface IOperation {
     String GetName();
     int Execute(ArrayList<String> args);
-    int GetNbOptions();
-    String GetOption(int nOption);
+    ArrayList<String> GetOption();
 }

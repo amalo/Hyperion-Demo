@@ -6,10 +6,31 @@
 
 package bottin;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Julie
  */
 public class Enregistrement {
+    ArrayList<String> m_Records = new ArrayList<>();
     
+    public int AddRecord(String newName)
+    {
+        int result = -1;
+        
+        if (!m_Records.contains(newName))
+        {
+            m_Records.add(newName);
+            System.out.println("New record: " + newName);
+            result = 1;
+        }
+        
+        return result;
+    }
+    
+    public ArrayList<String> GetRecords()
+    {
+        return m_Records;
+    }
 }

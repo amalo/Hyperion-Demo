@@ -12,23 +12,31 @@ import java.util.ArrayList;
  *
  * @author Julie
  */
-public class OpRecherche implements IOperation{
+public class OpListe implements IOperation{
     private Enregistrement m_Registre;
     private ArrayList<String> options = new ArrayList<>();
 
-    public OpRecherche(Enregistrement registre) {
+    public OpListe(Enregistrement registre) {
         m_Registre = registre;
         
-        options.add("nom");
+        options.add("tous");
     }
     
     public String GetName()
     {
-        return "Recherche";
+        return "Liste";
     }
     public int Execute(ArrayList<String> args)
     {
         int result = -1;
+        
+        String command = args.get(0);
+        args.remove(0);
+        
+        if (command.matches(options.get(0)))
+        {
+            result = ListeTous();
+        }
         return result;
     }
     
@@ -36,10 +44,20 @@ public class OpRecherche implements IOperation{
         return options;
     }    
     
-    private int RechercheParNom(ArrayList<String> args)
+    private int ListeTous()
     {
         int result = -1;
-        System.out.println("Not implemented yet.");
+        if (m_Registre.GetRecords().size() > 0)
+        {
+            for (String records : m_Registre.GetRecords())
+            {
+                System.out.println("Record found: " + records);
+            }
+
+            System.out.println("Done printing record.");
+            result = 1;
+        }
+        
         return result;
     }
 }
